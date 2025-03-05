@@ -57,9 +57,23 @@ export const App = () => {
             >
               <td>
                 {good === selectedGood ? (
-                  <RemoveButton onClick={handleClearGoods} />
+                  <button
+                    data-cy="RemoveButton"
+                    type="button"
+                    className="button is-info"
+                    onClick={handleClearGoods}
+                  >
+                    -
+                  </button>
                 ) : (
-                  <AddButton onClick={() => handleSelectGood(good)} />
+                  <button
+                    data-cy="AddButton"
+                    type="button"
+                    className="button"
+                    onClick={() => handleSelectGood(good)}
+                  >
+                    +
+                  </button>
                 )}
               </td>
 
@@ -71,31 +85,5 @@ export const App = () => {
         </tbody>
       </table>
     </main>
-  );
-};
-
-const RemoveButton = ({ onClick, children }) => {
-  return (
-    <button
-      data-cy="RemoveButton"
-      type="button"
-      className="button is-info"
-      onClick={onClick}
-    >
-      {children || '-'}
-    </button>
-  );
-};
-
-const AddButton = ({ onClick, children }) => {
-  return (
-    <button
-      data-cy="AddButton"
-      type="button"
-      className="button"
-      onClick={onClick}
-    >
-      {children || '+'}
-    </button>
   );
 };
